@@ -113,7 +113,10 @@ namespace ConsoleApplication1
                   }
               }*/
             #endregion
-            使用SqlParameters实现UserInfo表的增删改查。
+            #region 使用SqlParameters实现UserInfo表的增删改查。MyRegion
+
+            #endregion
+
         }
     }
     }
