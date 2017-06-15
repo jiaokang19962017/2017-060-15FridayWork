@@ -113,8 +113,26 @@ namespace ConsoleApplication1
                   }
               }*/
             #endregion
-            #region 使用SqlParameters实现UserInfo表的增删改查。MyRegion
+            #region 使用SqlParameters实现UserInfo表的增删改查.
+            //1).新增：增加一条记录，所有的字段作为参数。
+            using (SqlConnection con = new SqlConnection(strConn))
+            {
+                string sql = "insert into UserInfo(userid,username,usersex,userage,useremail) values(@userid,@username,@usersex,@userage,@usermail)";
+             
+                SqlParameter[] parm = new SqlParameter[] 
+                {
+                    new SqlParameter("@userid",1003),
+                    new SqlParameter("@username","历史"),
+                    new SqlParameter("@usersex",0),
+                    new SqlParameter("@userage",18),
+                    new SqlParameter("@usermail","811708046")
 
+                };
+                SqlCommand cmd = new SqlCommand(sql, con);
+                cmd.Parameters.AddRange(parm);
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
             #endregion
 
         }
